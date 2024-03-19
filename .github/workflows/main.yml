@@ -38,8 +38,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.email "pipeline_user@thebulb.com"
-          git config --global user.name "pipeline"
+          git config --global user.email "kunlekush45@gmail.com"
+          git config --global user.name "kunlekush"
           
       - name: Update Kubernetes Manifests
         run: |
