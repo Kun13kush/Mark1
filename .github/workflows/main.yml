@@ -48,5 +48,5 @@ jobs:
           sed -i "s/spring1:app-.*/spring1:app-${{ github.sha }}/g" deployment.yaml
           cat deployment.yaml
           git add deployment.yaml
-          git commit -m "Update Vue.js test app Dev env k8s manifest file"
+          git commit -m "Update spring test app Dev env k8s manifest file"
           git push origin main
