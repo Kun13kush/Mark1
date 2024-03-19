@@ -43,7 +43,7 @@ jobs:
           
       - name: Update Kubernetes Manifests
         run: |
-          git clone https://${{ secrets.USERNAME_TOKEN}}:${{ secrets.PIPELINE_TOKEN }}@github.com/kunlekush/spring1.git
+          git clone https://${{ secrets.USERNAME_TOKEN}}:${{ secrets.PIPELINE_TOKEN }}@github.com/kunlekush/Mark2.git
           cd spring1 
           sed -i "s/spring1:app-.*/spring1:app-${{ github.sha }}/g" deployment.yaml
           cat deployment.yaml
