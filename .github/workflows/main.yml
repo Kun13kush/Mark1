@@ -15,8 +15,8 @@ jobs:
       - name: Build Docker Image
         run: |
           echo "Generated image tag is ${{ github.sha }}" && ls
-          docker build -t kunlekush/spring1:app-${{ github.sha }} -f ./Dockerfile .
-          #docker build -t kunlekush/vue:webapp-${{ github.sha }} -f ./vue-test-app/Dockerfile ./vue-test-app
+          docker build -t horlandohorla1992/spring1:app-${{ github.sha }} -f ./Dockerfile .
+          #docker build -t horlandohorla1992/vue:webapp-${{ github.sha }} -f ./vue-test-app/Dockerfile ./vue-test-app
           echo "Docker build completed"
 
   push_image_to_registry:
@@ -27,7 +27,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Push Docker Image to Registry
-        run: docker push kunlekush/spring1:app-${{ github.sha }}
+        run: docker push horlandohorla1992/spring1:app-${{ github.sha }}
 
   deploy_to_dev:
     runs-on: self-hosted
@@ -38,12 +38,12 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.email "kunlekush45@gmail.com"
-          git config --global user.name "kunlekush"
+          git config --global user.email "balogunolabomijoseph@gmail.com"
+          git config --global user.name "Horlandohorla01"
           
       - name: Update Kubernetes Manifests
         run: |
-          git clone https://${{ secrets.USERNAME_TOKEN}}:${{ secrets.PIPELINE_TOKEN }}@github.com/kun13kush/Mark2.git
+          git clone https://${{ secrets.USERNAME_TOKEN}}:${{ secrets.PIPELINE_TOKEN }}@github.com/Horlandohorla01/Mark2.git
           cd Mark2
           sed -i "s/spring1:app-.*/spring1:app-${{ github.sha }}/g" deployment.yaml
           cat deployment.yaml
